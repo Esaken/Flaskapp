@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> GCP cloud </title>
+</head>
+<body>
+    <h1> Online Writing </h1>
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="submit" value="Upload Image">
+    </form>
+
+    <ul>
+        {% for image_file in image_files %}
+            <li>
+                <a href="/view/{{ image_file }}">{{ image_file }}</a>
+                <a href="/download/{{ image_file }}">Download</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
