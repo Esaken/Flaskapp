@@ -2,8 +2,19 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 import urllib.request
 import os
 from werkzeug.utils import secure_filename
- 
+
+from dotenv import load_dotenv
+from flask_cors import CORS
+
+# Load environment variables from .env file
+load_dotenv()
+
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes and origins
+
+# Configure FLASK_DEBUG from environment variable
+app.config['DEBUG'] = os.environ.get('FLASK_DEBUG')
+
  
 UPLOAD_FOLDER = 'static/uploads/'
  
